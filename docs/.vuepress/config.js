@@ -9,23 +9,24 @@ module.exports = {
       { text: '멋사 네이버카페', link: 'https://cafe.naver.com/skkulikelion' },
       { text: 'Vue 공식문서', link: 'https://vuejs.org/v2/guide/'}      
     ],
-    // sidebar: [
-    //   {
-    //     title: 'Vue',
-    //     collapsable: false,
-    //     children: [
-    //       '/vue/'
-    //     ]
-    //   },
-    //   {
-    //     title: 'Firebase',
-    //     collapsable: false,
-    //     children: [
-    //       '/firebase/'
-    //     ]
-    //   }
-    // ],
-    sidebar: 'auto',
+    sidebar: [
+      {
+        title: 'Vue',
+        collapsable: false,
+        children: [
+          '/vue/',
+          '/vue/vuecli'
+        ]
+      },
+      {
+        title: 'Firebase',
+        collapsable: false,
+        children: [
+          '/firebase/'
+        ]
+      }
+    ],
+    // sidebar: 'auto',
     displayAllHeaders: true
   }
 }

@@ -1,83 +1,86 @@
-# 차근차근 시작하기
+# JS 프레임워크로 개발한다는 건?
 
-## Vue-CLI
-"Real" 한 Vue 개발 플로우를 위해 Vue-CLI 를 사용합니다.
-Vue-CLI 는 빠른 Vue 개발을 위한 세팅이 이루어져 있는 작업환경입니다.
+## SPA (Single Page Aplication) 이해하기
 
-<Counter/>
+어떤 Javascript 프레임워크를 쓰든 우리는 **SPA 개발**을 하게 된다. ~~깊이 들어가면 다른 개발방식도 있지만~~\
+SPA 는 말 그대로 Single Page, 즉 단 하나의 html <small>(예: index.html)</small> 페이지 위에 모든 서비스를 구현한다.
 
-<!-- Italics -->
-*This text* is italic
-_This text_ is italic
+그러면 `www.example.com/index.html` 만 만들 수 있고 `/about` 이나 `/profile` 같은 url 라우팅은 어떻게 하냐 라는 궁금증이 생길텐데, 그것도 자바스크립트로 흉내낸다. 물론 잘 만들어진 공식 라이브러리가 있으니 직접 구현할 필요는 없고 가져다 쓰면 된다.
 
-<!-- Strongs -->
+::: tip Question
+왜 기존 방식처럼 페이지마다 html 파일 안 만들고 SPA 로 만드나요?
+:::
 
-**This text** is bold
+* 기존 방식이 SPA 보다 무조건 열등한 것은 결코 아니지만, SPA 로 개발하면
 
-__This text__ is bold
+  1. 실제 DOM 대신 가상의 Virtual DOM 위에 화면을 렌더링 하기 때문에 반응 속도가 훨씬 빠르고,
 
-<!-- Strikethrough -->
+  1. 자신이 어떤 역할을 해야하는지 아는 블록을 하나씩 만들어 그것들을 조립하며 개발할 수 있다.
 
-~~This text~~ is strikethrough
+::: warning Important
+이 블록을 Javascript 프레임워크에선 `'컴포넌트(component)'`라고 부르며, SPA 개발의 핵심이다.
+:::
 
-<!-- Horizontal Rule -->
-___
----
+## 컴포넌트 형식의 개발이 중요한 이유
 
-<!-- Blockquote -->
-> This is a quote
+1. 세상이 너무 발전해버려서 소비자의 기대치가 높아졌다. 즉, 복잡한 기능을 대규모로 개발해야 하는 경우가 많아서 코드가 엄청 길어지고, 개발자가 그 속에서 길을 잃는 일이 종종 발생한다. 자기 코드도 못 알아보는데 팀 프로젝트면 더 심각하다. 개발에 집중하는 대신 기존 코드를 해독하는 데 시간이 낭비된다.
 
-<!-- Links -->
-[Google](https://google.com)
-[Google](https://google.com "Google링크")
+1. 컴포넌트 형식으로 개발하면, 각자 자신이 맡은 기능을 따로 잘 개발한 후에 마지막에 조립만 하면 된다. 개인이든 팀이든 프로젝트 구조 파악이 훨씬 명쾌해진다.
 
-<!-- UL -->
-* Item 1
-* Item 2
-* Item 3
-  * Nested Item 1
-  * Nested Item 2
+1. 한 번 만들어 놓은 컴포넌트를 해당 프로젝트 내에서든, 아니면 아예 다른 프로젝트에서든 반복해서 쓸 수 있다. 즉, 중복 코드가 줄어들고 남의 코드를 베껴쓰기도 편해진다.:tada: (개발 속도 폭발적 증가)
 
-<!-- OL -->
-1. Item 1
-1. Item 2
-1. Item 3
+## Vue 의 컴포넌트 개발환경 == Vue CLI
 
-<!-- Inline Code Block -->
-`<p>This is a paragraph</p>`
+Vue 역시 컴포넌트 중심의 개발환경이 필요하다. 이제까지는 그냥 일반적인 html, css, js 코드로 Vue 의 문법을 체험해보았지만, 이걸론 컴포넌트 중심의 개발이 힘들다. 
 
-<!-- Images -->
-![Markdown Logo](/images/vueLogo.png)
-![Markdown Logo](../.vuepress/public/images/vueLogo.png)
-
-<!-- Github Markdonw -->
-
-## Code Blocks
-<!-- Code Blocks -->
-```bash
-  npm install 
-  npm start
-```
+예를 들어, app.js 같은 js 파일에 (혹은 html 파일의 script 태그 부분에)
 
 ```javascript
-function add(num1, num2) {
-  return num1 + num2
-}
-
+Vue.component({
+  template: '<h1> {{title}} </h1>',
+  data: {
+    title: 'Hello!'
+  },
+  methods: {
+    showTitle: function() {
+      ...등등
+    }
+  }
+})
 ```
 
-```python
-def add(num1, num2):
-  return num1 + num2
+로 컴포넌트를 등록한 후, html 코드 부분에
+
+```html
+<hello></hello>
+<hello></hello>
+<hello></hello>
 ```
+처럼 쓴다면 컴포넌트를 원하는 곳에 쓰는 것이 가능하긴 하다.\
+**그럼 뭐가 문제냐?**
 
-<!-- Tables -->
-|Name|Email|
-|------|------|
-|John Doe|john@gmail.com|
-|Jane Doe|jane@gmail.com|
+위에서 보다시피, template 안에 html 코드를 작성하는데, 모든걸 string, 즉 문자열로 작성해야 한다. 한 두줄 짜리 블록이라면 상관없겠지만 보통 우리가 원하는 *'제 역할을 하는'* 블록이란 건 html 한 두줄로 끝나지 않을 뿐더러 각종 css, js 코드도 필요하다. 
 
-<!-- Task Lists -->
-* [x] Task 1
-* [x] Task 2
-* [ ] Task 3
+* Vue 는 **Vue CLI** 라는 것을 이용해서 최적화된 컴포넌트 중심 개발 환경을 제공한다. Vue CLI 는
+
+  1. .vue 확장자 파일의 컴포넌트 개발 지원
+  1. 개발 서버 제공
+  1. 코드 최적화
+  1. 의존환경 관리
+
+과 같이 혼자서 다하려면 끝도 없이 공부해야 하는 도구들을 최적화해서 개발 환경으로 제공해준다.
+
+<img src="/images/thanks.jpg" width="350px" />
+<br>
+
+:::tip 한 마디로 말해서,
+Vue CLI 는 누군가가 이미 만들어놓은 최적화된 Vue 프로젝트 틀(template)이다.
+:::
+
+불현듯 그것 ~~레일즈~~ 이 생각날 수 있다.. 사실 어쩔 수 없다. 모든 것을 하나하나 배워서 자신만의 개발환경을 바닥부터 구현할 수 있다면, 이미 그 사람은 초보가 아닌 초고수 개발자다. 다만 단언할 수 있는 건, 레일즈보다 재밌다. 
+
+**백엔드(서버, DB) -> 프론트엔드** 의 순서로 개발하는 레일즈와 달리\
+눈에 보이는 **프론트엔드** 에 집중해서 개발할 수 있단 건 훨씬 마음이 편하다. 백엔드는 중요하지만, 나중에 생각하자. 
+
+
+그럼 Vue CLI 로 개발을 시작해보자!
