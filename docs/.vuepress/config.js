@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'SKKU Likelion Vue & Firebase',
+  title: 'Vue & Firebase',
   description: 'Vue + Firebase 로 세계정복하기',
   themeConfig: {
     nav: [
