@@ -16,7 +16,8 @@ module.exports = {
         children: [
           '/vue/',
           '/vue/vuecli',
-          '/vue/component'
+          '/vue/component',
+          '/vue/cmpcommunication'
         ]
       },
       {
