@@ -139,6 +139,7 @@ import Weather from './components/Weather'
 export default {
   // 's' 복수형임에 주의
   components: {
+    // key-vale 쌍 없이 그냥 Weather 만 써도 되며, 그 경우 이름도 Weather이다.
     'cmp-weather': Weather
   },
 }
@@ -163,6 +164,7 @@ export default {
 ```html
 <template>
   <div>
+    <!-- date 가 추가되었다. -->
     <p>{{date}} 의 날씨는 {{weather}} 입니다.</p>
     <hr>
     <button @click="changeWeather">날씨 업데이트</button>
@@ -178,7 +180,6 @@ export default {
       }
     },
     methods: {
-      // 여기도 ES6 축약형으로 함수 작성 가능
       changeWeather () {
         this.weather = '흐림'
       }
@@ -200,7 +201,8 @@ export default {
 </template>
 
 <script>
-import Weather from './Weather'
+// .vue 를 붙이지 않아도 알아서 인식한다.
+import Weather from './components/Weather'
 export default {
   components: {
     'cmp-weather': Weather
