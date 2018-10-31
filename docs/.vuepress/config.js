@@ -17,7 +17,6 @@ module.exports = {
           '/vue/',
           '/vue/vuecli',
           '/vue/component',
-          '/vue/cmpcommunication'
         ]
       },
       {
@@ -29,6 +28,6 @@ module.exports = {
       }
     ],
     // sidebar: 'auto',
-    displayAllHeaders: true
+    // displayAllHeaders: true
   }
 }
