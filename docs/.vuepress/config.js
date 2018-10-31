@@ -15,7 +15,8 @@ module.exports = {
         collapsable: false,
         children: [
           '/vue/',
-          '/vue/vuecli'
+          '/vue/vuecli',
+          '/vue/component'
         ]
       },
       {
