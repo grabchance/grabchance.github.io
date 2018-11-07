@@ -10,5 +10,7 @@ features:
   details: 백엔드 코드 한 줄 없이 웹앱 완성하기. 레일즈와는 다르다...!
 - title: 질문 환영!
   details: acoustic0419@gmail.com
+- title: github 주소
+  details: https://github.com/kim-taewoo/likelion2018-vue
 footer: MIT Licensed | Copyright © 2018-present Taewoo Kim
 ---
