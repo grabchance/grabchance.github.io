@@ -17,6 +17,7 @@ module.exports = {
           '/vue/',
           '/vue/vuecli',
           '/vue/component',
+          '/vue/vue-router'
         ]
       },
       {

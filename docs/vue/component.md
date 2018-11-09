@@ -549,9 +549,30 @@ export default {
 
 <img src="/images/consoleLog.png">
 
-그럼 로그를 찍는 게 아니라 삭제를 하려면 어떻게 해야될까? **숙제로 해보도록 하자.**
+그럼 로그를 찍는 게 아니라 삭제를 하려면 어떻게 해야될까? 
 
- 
+javascript 의 filter 함수를 사용하면 간단하다. 
+
+```js
+deleteAChoice(payload) {
+  this.choices = this.choices.filter(choice => {
+    return choice.name !== payload.name
+  })
+}
+```
+filter 함수는 Array 의 elements 를 하나씩 꺼내서, 우리가 설정한 조건문에 true 면 남기고, false 면 삭제해버린다. 따라서 위에서는 `this.choices` 라는 Array 내 각각의 element 의 name 프로퍼티가 우리가 자식으로부터 전달받은 payload 의 name 프로퍼티와 같은지를 비교해서, 같지 않은 것들만 다시 `this.choices` 로 설정하고 있음을 알 수 있다. 즉, 같은 경우만이 사라지게 된다. 
+
+filter 함수가 익숙하지 않다면, 그냥 for 루프와 splice를 조합해서 같은 결과를 낼 수 있다. ~~그냥 filter 를 공부하도록 하자~~
+
+```js
+deleteAChoice(payload) {
+  for(var i = 0; i< this.choices.length-1; i++) {
+    if (this.choices[i].name == payload.name) {
+      this.choices.splice(i,1)
+    }
+  } 
+}
+```
 ## (응용) props 를 v-for 과 함께 이용하기
 
 *성점추* 를 구상하기 전에 사용했던 `<cmp-weather />` 컴포넌트로 잠시 돌아가보자. 아래처럼, 'weather' 과 'date' 를 부모로부터 받기로 `props` 에 명시하자.
