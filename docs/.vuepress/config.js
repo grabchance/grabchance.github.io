@@ -24,7 +24,8 @@ module.exports = {
         title: 'Firebase',
         collapsable: false,
         children: [
-          '/firebase/'
+          '/firebase/',
+          '/firebase/deploy'
         ]
       }
     ],
