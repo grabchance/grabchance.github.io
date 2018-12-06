@@ -42,7 +42,9 @@ firebase init
 
 11. 지금까지 우리는 `npm run dev` 라는 개발용 서버를 사용중이었기 때문에, 이제 서비스를 위해 어딘가에 프로젝트를 올리려면 `npm run build` 로 최적화를 시켜주어야 한다. 따라서 프로젝트 폴더 경로에서 `npm run build` 작성 후 엔터.
 
-12. `npm run build` 를 마치고 나면 `dist` 폴더가 생기는데, 그 안에 있는 `index.html` 은 firebase 가 생성한 것이지 우리가 원래 쓰고 있던 `index.html` 파일이 아니다. 따라서 프로젝트 폴더에 있는 `index.html` 을 복사하여 `dist` 폴더 안에 있는 `index.html` 덮어쓰기. 그 후, `index.html` 파일 내 `build.js` 파일 참조하는 위치를 수정해 줌. (아래 그림 참고) (원래 이런 귀찮은 일을 안해도 되는데, 우리가 사용중인 **webpack-simple** 템플릿이 여기까지 지원해주지 않는 것으로 보임. webpack 으로 했다면 자동 세팅이 됨.)
+12. `npm run build` 를 마치고 나면 `dist` 폴더가 생기는데, 그 안에 있는 `index.html` 은 firebase 가 생성한 것이지 우리가 원래 쓰고 있던 `index.html` 파일이 아니다. 따라서 프로젝트 폴더에 있는 `index.html` 을 복사하여 `dist` 폴더 안에 있는 `index.html` 덮어쓰기. 그 후, `index.html` 파일 내 `build.js` 파일 참조하는 위치를 수정해 줌. (아래 그림 참고) 
+
+ (원래 이런 귀찮은 일을 안해도 되는데, 우리가 사용중인 **webpack-simple** 템플릿이 여기까지 지원해주지 않는 것으로 보인다. webpack 으로 했다면 자동 세팅이 된다. 다음부턴 그냥 webpack 으로 프로젝트를 만들기로 하자.)
 
 <img src="/images/firebaseDeploy2.png" />
 

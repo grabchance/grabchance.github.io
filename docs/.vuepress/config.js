@@ -15,6 +15,7 @@ module.exports = {
         collapsable: false,
         children: [
           '/vue/',
+          '/vue/whyvue',
           '/vue/vuecli',
           '/vue/component',
           '/vue/vue-router'
@@ -25,6 +26,8 @@ module.exports = {
         collapsable: false,
         children: [
           '/firebase/',
+          '/firebase/start',
+          '/firebase/firestore',
           '/firebase/deploy'
         ]
       }
