@@ -59,3 +59,8 @@ npm install firebase --save
 <img src="/images/firebase6.png">
 
 7. 세팅을 마쳤으니 *성점추* 프로젝트에서 **Firebase** 의 데이터베이스(Firestore) 를 사용해보도록 하자!
+
+
+<hr style="margin-top: 45px;">
+
+<DisqusNew />

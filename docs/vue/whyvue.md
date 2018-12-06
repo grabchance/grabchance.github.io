@@ -20,3 +20,7 @@ Angular, React, Vue 라는 가장 유명한 3개의 자바스크립트 프레임
 
 <img src="/images/whyvue3.png" width="360px">
 
+
+<hr style="margin-top: 45px;">
+
+<DisqusNew />

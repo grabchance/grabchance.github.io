@@ -61,3 +61,7 @@ firebase deploy
 14. Firebase 홈페이지 Hosting 탭에 들어가서 주소를 확인하여 들어가면 우리가 만든 웹앱이 잘 돌아가고 있는 것을 볼 수 있다! :tada:
 
 <img src="/images/firebaseDeploy4.png" />
+
+<hr style="margin-top: 45px;">
+
+<DisqusNew />

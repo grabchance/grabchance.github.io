@@ -753,3 +753,6 @@ Firestore 를 위한 CRUD 액션 중에서 `update()` 가 하나 남았지만 �
 <img src="/images/clap.jpg">
 
 
+<hr style="margin-top: 45px;">
+
+<DisqusNew />

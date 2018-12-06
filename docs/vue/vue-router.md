@@ -493,3 +493,8 @@ export default {
 보다시피, div 를 통째로 `<router-link>` 로 바꿔준 후, `tag="div"` 로 겉보기엔 div 태그인 것처럼 한 후에 처음 보는 코드를 적용시켜준다. 
 
 여기에서는 `params: {id: review._id, review: review}` 를 이용하여, id 라는 이름의 params 에는 현재 for 루프를 돌고 있는 review 의 _id 값을, review 라는 이름의 params 에는 review 를 통째로 넣어주고 있음을 알 수 있다. 이 두 개의 params 중에, id 는 `router/index.js` 파일에 설정했듯이 주소창에 표시되는 값으로 쓰이고, review 는 props 처럼 `ReviewDetail.vue` 에서 쓰이게 된다.
+
+
+<hr style="margin-top: 45px;">
+
+<DisqusNew />

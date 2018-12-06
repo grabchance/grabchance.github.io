@@ -638,3 +638,8 @@ export default {
 위와 같이 작성할 경우, 현재 부모 컴포넌트(App.vue) 가 가지고 있는 `data` 인 **weatherData** 가 v-for 을 통해 하나씩(selectOne) 자식 컴포넌트에게 부여되고, 그 하나마다 존재하는 프로퍼티인 `weather` 과 `date` 가 각각 자식 컴포넌트(Weather.vue) 가 받고자 하는 weather, date `props` 에 분배되고 있음을 알 수 있다. 코드의 실행결과는 아래와 같다. 
 
 <img src="/images/vforchild.png" width="300px" />
+
+
+<hr style="margin-top: 45px;">
+
+<DisqusNew />

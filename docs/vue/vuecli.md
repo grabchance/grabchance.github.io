@@ -230,3 +230,8 @@ vue init webpack-simple first-project
 맨 위에 `import Vue from 'vue'` 같은 경우, 이 Vue CLI 전에 쓰던 기본적인 html 환경에서 우리가 `<script>` 태그로 가지고 왔던 Vue 를 이제는 이 프로젝트 내에 미리 다운 받아놓고 그걸 가져오는 것이라고 생각하면 된다. 'vue' 에 딱히 경로 표시가 되어있지 않은 이유는 기본 경로 설정이 `node_modules`, 즉 이 프로젝트에 설치된 모든 것들이 있는 곳을 이미 가리키고 있기 때문이다. 진짜 있는지 의심된다면 `node_modules` 폴더를 뒤져보도록 하자.
 
 이제 기본적인 배경 설명은 끝났다. 앞으로는 즐겁게 Vue 개발을 배워보도록 하자!
+
+
+<hr style="margin-top: 45px;">
+
+<DisqusNew />
