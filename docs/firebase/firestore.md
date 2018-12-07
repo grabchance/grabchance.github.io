@@ -583,19 +583,19 @@ deleteReview (id) {
 
 * 마찬가지로 함수를 분석해보자.
 
-  1. `db.collection('reviews').doc(id)` 로 Firestore 의 reviews Collection 의, 인자로 받아온 **id** 값을 가진 document 의 reference 를 얻는다. 지금까지와 달리 Collection 에서 멈추지 않고 한 단계 더 들어갔음에 유의하자! 어쨌거나 CRUD 관련 메소드가 시행되기 전까지는 똑같이 참조할 데이터의 위치를 얻는 과정(Reference)이다.
+1. `db.collection('reviews').doc(id)` 로 Firestore 의 reviews Collection 의, 인자로 받아온 **id** 값을 가진 document 의 reference 를 얻는다. 지금까지와 달리 Collection 에서 멈추지 않고 한 단계 더 들어갔음에 유의하자! 어쨌거나 CRUD 관련 메소드가 시행되기 전까지는 똑같이 참조할 데이터의 위치를 얻는 과정(Reference)이다.
 
-  1. `delete()` 를 이용해 해당 document 를 삭제한다.
+1. `delete()` 를 이용해 해당 document 를 삭제한다.
 
-  1. `then()` 으로 그 전까지의 처리가 완료될 때까지 기다렸다가, `this.reviews.filter()` 를 통해서 **_id** 프로퍼티가 인자로 받은 **id** 와 같지 않은 요소들만 남긴다. 이래야 Firestore 의 변화 내용을 바로 반영할 수 있다.
+1. `then()` 으로 그 전까지의 처리가 완료될 때까지 기다렸다가, `this.reviews.filter()` 를 통해서 **_id** 프로퍼티가 인자로 받은 **id** 와 같지 않은 요소들만 남긴다. 이래야 Firestore 의 변화 내용을 바로 반영할 수 있다.
 
-  1. `alert` 를 통해 삭제되었음을 알린다.
+1. `alert` 를 통해 삭제되었음을 알린다.
 
-  여기까지 한 후 삭제 버튼을 눌러보면 다음 이미지와 같이 삭제가 제대로 이루어지는 것을 알 수 있다.
+여기까지 한 후 삭제 버튼을 눌러보면 다음 이미지와 같이 삭제가 제대로 이루어지는 것을 알 수 있다.
 
-  <img src="/images/firebase17.png" style="margin-top: 10px;">
+<img src="/images/firebase17.png" style="margin-top: 10px;">
 
-  그런데 아쉬운 점은, 삭제 버튼을 클릭하는 순간 부모 요소인 `router-link` 로 인해 **ReviewDetail** 페이지로 넘어가버린다는 것이다. 이렇게 자식 요소를 클릭했는데 부모까지 클릭되버리는 현상을 **event propagation** 이라고 한다. 이를 막아주려면 event.stopPropagation() 이라는 메소드를 실행시켜주어야 하는데, Vue 에서는 `.stop()` 이라는 간단한 이벤트 modifier 를 이용할 수 있다. 여기까지 이용해 완성된 `Review.vue` 파일은 다음과 같다.
+그런데 아쉬운 점은, 삭제 버튼을 클릭하는 순간 부모 요소인 `router-link` 로 인해 **ReviewDetail** 페이지로 넘어가버린다는 것이다. 이렇게 자식 요소를 클릭했는데 부모까지 클릭되버리는 현상을 **event propagation** 이라고 한다. 이를 막아주려면 event.stopPropagation() 이라는 메소드를 실행시켜주어야 하는데, Vue 에서는 `.stop()` 이라는 간단한 이벤트 modifier 를 이용할 수 있다. 여기까지 이용해 완성된 `Review.vue` 파일은 다음과 같다.
 
 ```html{15}
 <template>
