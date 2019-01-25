@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue-Router 박살내기 | Vue &amp; Firebase</title>
+    <meta name="description" content="Vue + Firebase 로 세계정복하기">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.3cc2447a.css" as="style"><link rel="preload" href="/assets/js/app.095a459d.js" as="script"><link rel="preload" href="/assets/js/13.c99c6ca3.js" as="script"><link rel="preload" href="/assets/js/4.81f5768b.js" as="script"><link rel="prefetch" href="/assets/js/10.2e27ded6.js"><link rel="prefetch" href="/assets/js/11.048daacb.js"><link rel="prefetch" href="/assets/js/12.b4e7e265.js"><link rel="prefetch" href="/assets/js/14.42e2c3b4.js"><link rel="prefetch" href="/assets/js/15.0ebe22b7.js"><link rel="prefetch" href="/assets/js/16.53b0d5e6.js"><link rel="prefetch" href="/assets/js/2.d1804fee.js"><link rel="prefetch" href="/assets/js/3.6f0e7268.js"><link rel="prefetch" href="/assets/js/5.683b75ef.js"><link rel="prefetch" href="/assets/js/6.46ea7519.js"><link rel="prefetch" href="/assets/js/7.f0dff405.js"><link rel="prefetch" href="/assets/js/8.4f3898d2.js"><link rel="prefetch" href="/assets/js/9.369587d5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3cc2447a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Vue &amp; Firebase</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">Vue</a></div><div class="nav-item"><a href="/firebase/" class="nav-link">Firebase</a></div><div class="nav-item"><a href="https://vuejs.org/v2/guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue 공식문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">Vue</a></div><div class="nav-item"><a href="/firebase/" class="nav-link">Firebase</a></div><div class="nav-item"><a href="https://vuejs.org/v2/guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue 공식문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>Vue</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/vue/" class="sidebar-link">JS 프레임워크로 개발한다는 건?</a></li><li><a href="/vue/whyvue.html" class="sidebar-link">Why Vue?</a></li><li><a href="/vue/vuecli.html" class="sidebar-link">Vue CLI 파헤치기</a></li><li><a href="/vue/component.html" class="sidebar-link">컴포넌트 이해하기</a></li><li><a href="/vue/vue-router.html" class="active sidebar-link">Vue-Router 박살내기</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/vue-router.html#탈출하기" class="sidebar-link">'/' 탈출하기</a></li><li class="sidebar-sub-header"><a href="/vue/vue-router.html#vue-router-시작하기" class="sidebar-link">Vue-Router 시작하기</a></li><li class="sidebar-sub-header"><a href="/vue/vue-router.html#에-home-vue-등록하기" class="sidebar-link">'/' 에 Home.vue 등록하기</a></li><li class="sidebar-sub-header"><a href="/vue/vue-router.html#review-에-review-vue-등록하기" class="sidebar-link">'/review' 에 Review.vue 등록하기</a></li><li class="sidebar-sub-header"><a href="/vue/vue-router.html#router-link-사용하기" class="sidebar-link">Router-Link 사용하기</a></li><li class="sidebar-sub-header"><a href="/vue/vue-router.html#review-id-에-reviewdetail-vue-등록하기-params" class="sidebar-link">'/review/:id' 에 ReviewDetail.vue 등록하기 (params)</a></li></ul></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Firebase</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/firebase/" class="sidebar-link">Firebase 를 배워봅시다!</a></li><li><a href="/firebase/start.html" class="sidebar-link">세팅하기</a></li><li><a href="/firebase/firestore.html" class="sidebar-link">Firestore 사용하기</a></li><li><a href="/firebase/deploy.html" class="sidebar-link">Firebase 로 웹앱 호스팅하기</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="vue-router-박살내기"><a href="#vue-router-박살내기" aria-hidden="true" class="header-anchor">#</a> Vue-Router 박살내기</h1> <h2 id="탈출하기"><a href="#탈출하기" aria-hidden="true" class="header-anchor">#</a> '/' 탈출하기</h2> <p>지금까지 잘 따라왔다면, 뭔가를 많이 배운 건 알겠는데 대체 언제쯤 제대로 된 웹 서비스를 만들 수 있나 의문이 들 것이다. 그리고 보통 '제대로 된 웹 서비스' 는, 기본 경로인 <strong>/</strong> 을 벗어나 <strong>/about</strong> 이나 <strong>/post</strong> 같은 다른 페이지로 넘어가는 걸 포함한다.</p> <img src="/images/want.jpg"> <p>각각의 웹페이지가 하나의 html 파일이었던 과거 웹사이트는, 브라우저 주소창에 주소를 치면 서버가 해당 주소에 맞는 html 파일을 사용자에게 던져줬다. 하지만 SPA(Single Page Application) 는 꼴랑 하나의 html 파일만 가지고 있고, 우리는 지금 서버도 없다. 그럼 뭐 어쩌라는 거냐 싶겠지만 한 번 더 생각해보자.</p> <p>우리가 지금까지 한 모든 것이 <code>index.html</code> 에 JS 로 원하는 블럭(Component)을 집어넣는 과정이었다. 그럼 그냥 페이지 하나당 하나의 블럭을 만들어, 그것들을 바꿔 끼울 때마다 브라우저 주소창만 바꿔주면 똑같아 보이지 않을까? 심지어 페이지 이동할 때마다 서버에 Request 를 넣고 Response 를 받아올 필요가 없어서 서버를 오가는 시간 없이 스무-스한 사용자 경험을 제공해준다. <s>궁금하지 않겠지만</s> 서버와 연결이 끊겨도 돌아다닐 수 있단 점을 잘 활용하면 모바일 앱처럼 오프라인에서도 작동하는 웹앱도 만들 수 있다!</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>오프라인에서 작동가능한 점을 포함하여 마치 모바일 앱처럼 스마트폰에 아이콘도 설치할 수 있고, 푸쉬 알림까지 지원가능한 웹앱을 만드는 기술을 PWA (Progressive Web App) 이라고 한다. 관심있으면 찾아보도록 하자.</p></div> <h2 id="vue-router-시작하기"><a href="#vue-router-시작하기" aria-hidden="true" class="header-anchor">#</a> Vue-Router 시작하기</h2> <p>개념을 이해했다면, 복잡한 건 잘 만들어진 라이브러리를 활용하면 된다. 커맨드 창을 열고 프로젝트 경로로 가, vue-router 을 설치해주자.</p> <div class="language- extra-class"><pre class="language-text"><code>npm install vue-router --save
+</code></pre></div><p>설치가 완료된 후 에디터로 프로젝트 폴더를 확인해보면, <code>package.json</code> 파일에 <strong>vue-router</strong> 가 기록된 것을 확인할 수 있다.</p> <img src="/images/package.png"> <p>그리고 이전에 <code>component</code> 폴더를 만들었듯이, 같은 레벨에 <code>router</code> 라는 폴더를 만들고 그 안에 <code>index.js</code> 라는 파일을 생성하자.</p> <img src="/images/routerFolder.png"> <p>그리고 나서 새로 만든 <code>index.js</code> 파일에 다음과 같은 코드를 입력하자.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// index.js 파일</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Router<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>그리고 나서 <code>main.js</code> 파일에 다음과 같은 코드를 추가하자.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><div class="highlighted"> </div><br><br><br></div><pre class="language-js"><code><span class="token comment">// main.js 파일</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span>
+<span class="token comment">// './router' 은 자동으로 './router/index.js' 를 찾아간다.</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  router<span class="token punctuation">,</span>
+  render<span class="token punctuation">:</span> h <span class="token operator">=&gt;</span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>이렇게 하면 <strong>Vue-router</strong> 을 이용하기 위한 기본 틀이 완성되었다. 간단하게 설명을 하자면, <code>index.js</code> 파일에서 Vue 에서 vue-router 을 사용할 수 있게 세팅하고, 그 세팅을 <code>main.js</code> 에 불러와서 현재 Vue instance 에 등록한 것이다. 정확히 이해하지 못해도 괜찮으니 적당히 넘어가도록 하자.</p> <h2 id="에-home-vue-등록하기"><a href="#에-home-vue-등록하기" aria-hidden="true" class="header-anchor">#</a> '/' 에 Home.vue 등록하기</h2> <p>먼저 기본 경로인 '/' 에 해당하는 블록을 만들고, vue-router 에 등록해보자. vue-router 을 배우기 전에 만들었던 것들이 아까우니, 그것들을 그대로 새로 만든 <code>Home.vue</code> 파일에 복붙하자.</p> <div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>본인이 어떻게 작업했느냐에 따라 (특히나 오프라인 세션에서 온라인 코드와 다르게 작업했기 때문에) 컴포넌트 import 경로가 달라졌을 수 있다. 어떻게 수정해야 할지 헷갈린다면 아래 이미지를 참고하여 고치도록 하자.</p></div> <img src="/images/routerHome.png"> <p>그리고 나서 <code>router/index.js</code> 파일에 다음과 같이 첫번째 경로를 등록하자. 해당 경로에 사용할 컴포넌트를 <strong>import</strong> 하고 <strong>component(단수)</strong> 에 쓴다는 것에 유의하자.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br></div><pre class="language-js"><code><span class="token comment">// index.js 파일</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'../components/Home.vue'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Router<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Home'</span><span class="token punctuation">,</span>
+      component<span class="token punctuation">:</span> Home
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>이렇게 뭔가 많이 했지만, 아직까지는 브라우저 화면에 표시되는 게 달라진 게 없다. 이전에 화면에 그려지는 모든 것은 <code>App.vue</code> 파일과 관련있어야 된다고 했던 것을 떠올려보자. <code>App.vue</code> 파일에, 이 서로 교체될 블록들이(아직은 <code>Home.vue</code> 밖에 없지만) 들어갈 자리를 만들어야 한다. 그 자리를 <code>&lt;router-view /&gt;</code> 라고 부른다.</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- App.vue 파일 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>header<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>성점추<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>subtitle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>성대생을 위한 점심 추천 서비스<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>app-main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>취향에 따라 <code>&lt;div class=&quot;app-main&quot;&gt;</code> 로 한 번 감싸놓았지만, 어쨌거나 <code>&lt;router-view /&gt;</code> 가 위치한 곳에 앞으로 우리가 <code>router/index.js</code> 에 등록하는 파일들이 주소에 맞게 서로 교체되며 자리하게 된다. <code>npm run dev</code> 로 서버를 돌려, vue-router 를 사용하기 전과 동일하게 브라우저에 표시되는지 확인해보도록 하자.</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>주소창에 # 가 붙은 것을 볼 수 있는데 일단은 무시하도록 하자. 나중에 아주 간단하게 없앨 수 있다.</p></div> <h2 id="review-에-review-vue-등록하기"><a href="#review-에-review-vue-등록하기" aria-hidden="true" class="header-anchor">#</a> '/review' 에 Review.vue 등록하기</h2> <p>드디어 새로운 페이지, <strong>/review</strong> 를 만들어보도록 하자. github 이나 아래 코드를 참고하자. <s>복붙하자</s></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- Review.vue 파일 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-header<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>리뷰s<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{name: <span class="token punctuation">'</span>ReviewDetail<span class="token punctuation">'</span>, params: {id: review._id, review: review}}<span class="token punctuation">&quot;</span></span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>div<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(review,index) in reviews<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>index<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{review.title}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-summary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{review.summary}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-tags<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tag in review.tags<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span># {{tag}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      reviews<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          _id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          title<span class="token punctuation">:</span> <span class="token string">'오랜만에 품 갔다온 썰'</span><span class="token punctuation">,</span>
+          summary<span class="token punctuation">:</span> <span class="token string">'예전엔 엄청 괜찮았던 것 같은데 최근엔 좀 아닌듯. 가격도 오르고..'</span><span class="token punctuation">,</span>
+          tags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'품'</span><span class="token punctuation">,</span> <span class="token string">'그저그럼'</span><span class="token punctuation">,</span><span class="token string">'추억'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          _id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          title<span class="token punctuation">:</span> <span class="token string">'맘스터치는 맘스터치'</span><span class="token punctuation">,</span>
+          summary<span class="token punctuation">:</span> <span class="token string">'맘스터치는 실망시키지 않는다.'</span><span class="token punctuation">,</span>
+          tags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'킹갓존엄'</span><span class="token punctuation">,</span><span class="token string">'싸이버거'</span><span class="token punctuation">,</span><span class="token string">'존맛'</span><span class="token punctuation">,</span><span class="token string">'맘스터치'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          _id<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          title<span class="token punctuation">:</span> <span class="token string">'학식 볶음우동은 언제먹어도..'</span><span class="token punctuation">,</span>
+          summary<span class="token punctuation">:</span> <span class="token string">'생각날 때마다 가는데 역시나 맛있다.'</span><span class="token punctuation">,</span>
+          tags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'가성비'</span><span class="token punctuation">,</span><span class="token string">'매운맛도전'</span><span class="token punctuation">,</span><span class="token string">'학식'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+<span class="token selector">.review-header</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-main</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 2px solid skyblue<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 1px 1px 1px #ccc<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 15px 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-title</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 800<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-summary</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-tags</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>그 후 이 <code>Review.vue</code> 파일을 router 에 등록해주도록 하자.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br></div><pre class="language-js"><code><span class="token comment">// 'router/index.js' 파일</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'../components/Home.vue'</span>
+<span class="token keyword">import</span> Review <span class="token keyword">from</span> <span class="token string">'../components/Review.vue'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Router<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Home'</span><span class="token punctuation">,</span>
+      component<span class="token punctuation">:</span> Home
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      path<span class="token punctuation">:</span> <span class="token string">'/review'</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Review'</span><span class="token punctuation">,</span>
+      component<span class="token punctuation">:</span> Review
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>이제, 브라우저의 주소창 (현재는 http://localhost:8080 인 경우가 가장 많을 것이다.) 맨뒤에 /review 를 붙여서 내용이 바뀌는지 확인해보도록 하자!</p> <h2 id="router-link-사용하기"><a href="#router-link-사용하기" aria-hidden="true" class="header-anchor">#</a> Router-Link 사용하기</h2> <p>언제까지고 주소창에 직접 타이핑하며 페이지를 이동할 수는 없다. HTML 을 배울 때 다른 페이지로 이동할 때는 <code>&lt;a&gt;</code> 태그를 사용했지만 Vue-router 에서도 똑같은 걸 쓸 수는 없다. 왜냐하면 <code>&lt;a&gt;</code> 태그는 무조건 서버에 새로 요청을 넣기 때문에 기껏 JS 로 라우팅하는 보람이 없이 모든 것을 새로 불러오게 된다. 그 외에도 이후에 배울 Vue-router 만의 여러 기능들을 쓸 수 없게 된다.</p> <p>그래서 대신 사용하는 것이 <code>&lt;router-link&gt;</code> 이다. 우선 이 링크를 적용시킬 곳이 필요하니, <code>&lt;Navbar /&gt;</code> 컴포넌트를 <code>App.vue</code> 파일의 <code>&lt;router-view /&gt;</code> 의 위쪽에 집어 넣자. 이렇게 하는 이유는 어떤 페이지(경로)로 가든, 언제나 같은 위치에 Navbar 를 자리하게 하고 싶기 때문이다. 컴포넌트 등록하는 것도 잊지 말자!</p> <div class="language-html extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><div class="highlighted"> </div><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-html"><code><span class="token comment">&lt;!-- App.vue 파일 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>header<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>성점추<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>subtitle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>성대생을 위한 점심 추천 서비스<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Navbar</span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>app-main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> Navbar <span class="token keyword">from</span> <span class="token string">'./components/Navbar'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    Navbar
+  <span class="token punctuation">}</span>
+  
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+<span class="token selector">.header</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">html, body</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.app-main</span> <span class="token punctuation">{</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> 980px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>그리고 나서 <code>Navbar.vue</code> 파일을 아래와 같이 작성하자. <s>복붙하자</s></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- Navbar.vue 파일 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>navbar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>li<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{name: <span class="token punctuation">'</span>Home<span class="token punctuation">'</span>}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>홈<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>li<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{name: <span class="token punctuation">'</span>Review<span class="token punctuation">'</span>}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>리뷰<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+<span class="token selector">.navbar</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">ul</span> <span class="token punctuation">{</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">ul li</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><code>Navbar.vue</code> 파일에서 처음보는 태그를 발견할 수 있을 것이다.</p> <p><code>&lt;router-link tag=&quot;li&quot; :to=&quot;{name: 'Home'}&quot;&gt;홈&lt;/router-link&gt;</code></p> <p>어렵게 생각하지 말자. 그냥 Vue-router 에서 <code>&lt;a&gt;</code> 대신 사용하는 코드로, <code>tag=&quot;li&quot;</code> 는 지금 작성한 건 <code>&lt;router-link&gt;</code> 이지만 겉보기엔 <code>&lt;li&gt;</code> 인 것처럼 쓰고 싶다는 것이고(이게 없어도 정상 작동한다. <code>&lt;li&gt;</code> 대신 <code>&lt;a&gt;</code> 로 렌더링될 뿐), 좀 복잡해 보이는 <code>:to=&quot;{name: 'Home'}&quot;</code> 도 해석하면 name 을 'Home' 으로 등록했던 경로로 가고 싶다는 것이다. <code>:</code>, 즉 <code>v-bind</code> 를 이용해서 자바스크립트 코드를 썼다는 것에만 유의하자. <code>router/index.js</code> 파일에 가보면 우리가 등록했던 name 을 확인할 수 있다.</p> <p>이제 브라우저로 이동해서 Navbar 를 각각 클릭해보면 다음과 같은 결과물을 확인할 수 있다.</p> <img src="/images/HomeRoute.png" width="430px "> <img src="/images/ReviewRoute.png" width="430px"> <h2 id="review-id-에-reviewdetail-vue-등록하기-params"><a href="#review-id-에-reviewdetail-vue-등록하기-params" aria-hidden="true" class="header-anchor">#</a> '/review/:id' 에 ReviewDetail.vue 등록하기 (params)</h2> <p>리뷰 하나하나마다 컴포넌트를 일일이 만들 수는 없다. 그래서 어떤 리뷰를 자세히 보고 싶어서 클릭했을 때, '/review/1', '/review/2' 와 같이 경로에서 해당 리뷰의 아이디 값만 달라지게 하고 싶을 수 있다. 그때 이용하는 게 <strong>params</strong> 이다. 단순하게 어떤 컴포넌트를 사용할 때 그 컴포넌트 내에서 사용하기 위해 같이 넘겨주는 값이라 생각하면 된다. 우선 review 목록에서 하나를 클릭했을 때 보여지는 페이지에서 사용할 <code>ReviewDetail.vue</code> 파일을 다음과 같이 만들자.</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- ReviewDetail.vue 파일 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-detail-main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Review Detail 페이지 for Review ID: {{$route.params.id}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{review.title}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-summary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{review.summary}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-tags<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tag in review.tags<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span># {{tag}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'review'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+<span class="token selector">.review-detail-main</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-title</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 800<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-summary</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-tags</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.backBtn</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 1px 1px 1px #cccccc<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>익숙한 게 눈에 띌 것이다. 바로 <code>props: ['review']</code> 이다. 분명 params 와 props 는 영어철자부터 다르지만, 괜히 새로운 것을 따로 배우기 복잡하니, props 쓰듯이 사용할 수 있다. 솔직히 역할이 별 다를 것도 없다. 부모 컴포넌트가 자식 컴포넌트에게 데이터를 넘겨주듯이 params 도 링크를 타고 넘어갈 곳에 데이터를 넘겨주는 것이니까. 그래서 params 로 넘겨받은 것을 props 를 받듯이 쓰겠다고 해놓은 상태다.</p> <p>대신 <code>router/index.js</code> 파일에 <code>ReviewDetail.vue</code> 를 등록할 때, params 를 props 처럼 사용할 것이라고 말해주어야 한다. 아래 코드를 참고하자.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br></div><pre class="language-js"><code><span class="token comment">// router/index.js 파일</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'../components/Home.vue'</span>
+<span class="token keyword">import</span> Review <span class="token keyword">from</span> <span class="token string">'../components/Review.vue'</span>
+<span class="token keyword">import</span> ReviewDetail <span class="token keyword">from</span> <span class="token string">'../components/ReviewDetail.vue'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Router<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Home'</span><span class="token punctuation">,</span>
+      component<span class="token punctuation">:</span> Home
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      path<span class="token punctuation">:</span> <span class="token string">'/review'</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Review'</span><span class="token punctuation">,</span>
+      component<span class="token punctuation">:</span> Review
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      path<span class="token punctuation">:</span> <span class="token string">'/review/:id'</span><span class="token punctuation">,</span> <span class="token comment">// 정해져있지 않고 변하는 부분은 ':' + '변하는 부분의 params 이름' 으로 해준다.</span>
+      name<span class="token punctuation">:</span> <span class="token string">'ReviewDetail'</span><span class="token punctuation">,</span>
+      props<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 이거 주의!</span>
+      component<span class="token punctuation">:</span> ReviewDetail
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>이제 리뷰 목록을 지니고 있는 <code>Review.vue</code> 로 가서, <code>ReviewDetail</code> 로 경로 이동을 하면서 필요한 정보를 어떻게 넘기는지 보도록 하자.</p> <div class="language-html extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-html"><code><span class="token comment">&lt;!-- Review.vue 파일 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-header<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>리뷰s<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{name: <span class="token punctuation">'</span>ReviewDetail<span class="token punctuation">'</span>, params: {id: review._id, review: review}}<span class="token punctuation">&quot;</span></span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>div<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(review,index) in reviews<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>index<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{review.title}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-summary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{review.summary}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>review-tags<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>tag in review.tags<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span># {{tag}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      reviews<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          _id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          title<span class="token punctuation">:</span> <span class="token string">'오랜만에 품 갔다온 썰'</span><span class="token punctuation">,</span>
+          summary<span class="token punctuation">:</span> <span class="token string">'예전엔 엄청 괜찮았던 것 같은데 최근엔 좀 아닌듯. 가격도 오르고..'</span><span class="token punctuation">,</span>
+          tags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'품'</span><span class="token punctuation">,</span> <span class="token string">'그저그럼'</span><span class="token punctuation">,</span><span class="token string">'추억'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          _id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          title<span class="token punctuation">:</span> <span class="token string">'맘스터치는 맘스터치'</span><span class="token punctuation">,</span>
+          summary<span class="token punctuation">:</span> <span class="token string">'맘스터치는 실망시키지 않는다.'</span><span class="token punctuation">,</span>
+          tags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'킹갓존엄'</span><span class="token punctuation">,</span><span class="token string">'싸이버거'</span><span class="token punctuation">,</span><span class="token string">'존맛'</span><span class="token punctuation">,</span><span class="token string">'맘스터치'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          _id<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          title<span class="token punctuation">:</span> <span class="token string">'학식 볶음우동은 언제먹어도..'</span><span class="token punctuation">,</span>
+          summary<span class="token punctuation">:</span> <span class="token string">'생각날 때마다 가는데 역시나 맛있다.'</span><span class="token punctuation">,</span>
+          tags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'가성비'</span><span class="token punctuation">,</span><span class="token string">'매운맛도전'</span><span class="token punctuation">,</span><span class="token string">'학식'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+<span class="token selector">.review-header</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-main</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 2px solid skyblue<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 1px 1px 1px #ccc<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 15px 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-title</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 800<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-summary</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.review-tags</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>보다시피, div 를 통째로 <code>&lt;router-link&gt;</code> 로 바꿔준 후, <code>tag=&quot;div&quot;</code> 로 겉보기엔 div 태그인 것처럼 한 후에 처음 보는 코드를 적용시켜준다.</p> <p>여기에서는 <code>params: {id: review._id, review: review}</code> 를 이용하여, id 라는 이름의 params 에는 현재 for 루프를 돌고 있는 review 의 _id 값을, review 라는 이름의 params 에는 review 를 통째로 넣어주고 있음을 알 수 있다. 이 두 개의 params 중에, id 는 <code>router/index.js</code> 파일에 설정했듯이 주소창에 표시되는 값으로 쓰이고, review 는 props 처럼 <code>ReviewDetail.vue</code> 에서 쓰이게 된다.</p> <hr style="margin-top: 45px;"> <div><div id="disqus_thread"></div> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vue/component.html" class="prev">
+          컴포넌트 이해하기
+        </a></span> <span class="next"><a href="/firebase/">
+          Firebase 를 배워봅시다!
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.095a459d.js" defer></script><script src="/assets/js/13.c99c6ca3.js" defer></script><script src="/assets/js/4.81f5768b.js" defer></script>
+  </body>
+</html>
