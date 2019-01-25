@@ -22,7 +22,7 @@ deploy:
     provider: pages
     skip-cleanup: true
     local_dir: docs/.vuepress/dist
-    github-token: e1310bdde32e17836a1b74a51936dd3b0af8150f
+    github-token: 45ec6166a8afacc33f43fb4b9dfbec644a7385eb
     repo: kim-taewoo/myblog
     keep-history: true
     target-branch: master
