@@ -11,7 +11,7 @@ export default {
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    console.log(this.$route.path)
+    // console.log(this.$route.path)
     var that = this
     var disqus_config = function () {
       this.page.url = that.$route.path;  // Replace PAGE_URL with your page's canonical URL variable
