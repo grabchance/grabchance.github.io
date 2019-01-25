@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/kim-taewoo.github.io/',
+  // base: '/',
   title: 'Vue & Firebase',
   description: 'Vue + Firebase 로 세계정복하기',
   themeConfig: {
